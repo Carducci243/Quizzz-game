@@ -15,11 +15,11 @@
   place-content:start;
   border: 1px solid rgb(138, 171, 175);
   min-width: 20vw;
-  min-height: 85vh;
+  min-height: 100vh;
   grid-template-columns: 1fr;
   grid-template-rows:75px 150px;
   border-radius: 20px;
-  background-image: url(/Images/abstract-view-modern-architecture.jpg);
+  background-image: url(/Images/hand-drawn-question-mark-pattern/7227163.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   gap: 1.5rem ;
@@ -27,17 +27,23 @@
 }
 
 .name{
-   background-color: rgba(255, 255, 255, 0.808);
+   background-color: rgba(29, 45, 56, 0.527);
    border-radius: inherit;
-   font-size: 2rem;
+   font-size: 2.5rem;
    font-weight: bold;
    font-family: 'jost' ;
    line-height: 4rem;
-   box-shadow: 0.5px 0.5px 5px black ;
+   box-shadow: 0.5px 0.5px 1px black ;
    justify-content: start;
 
 }
+.name a{
+   text-decoration: none;
+   color: rgb(255, 255, 255);
+   text-shadow: 3px 3px  black ;
 
+
+}
 .start {
 
  
@@ -45,15 +51,17 @@
   align-self: center;
 }
 
+
 button{
 
        padding: 10px 30px;
        border-radius: 50px;
        color: white;
-       background-color:rgb(49, 131, 151);
+       background-color:rgb(54, 92, 128);
        border: none;
        font-size: 1.2rem;
        box-shadow:2px 2px 10px white;
+       transition: 120ms ease-out;
 
 
 
@@ -64,3 +72,6 @@ button a {
     color: white;
 }
 
+button:active{
+   margin-top: 20px;
+}

@@ -15,26 +15,34 @@
    place-content: center;
    border: 1px solid rgb(138, 171, 175);
    min-width: 20vw;
-   min-height: 85vh;
-   grid-template-columns: 2fr;
-   grid-template-rows:75px 50px repeat(3,125px);
+   min-height: 100vh;
+   grid-template-columns: 1fr;
+   grid-template-rows:50px 50px 250px repeat(2,90px);
    border-radius: 20px;
-   background-image: url(/Images/luxury-plain-green-gradient-abstract-studio-background-empty-room-with-space-your-text-picture.jpg);
+   background-image: url(/Images/25235.jpg);
    background-repeat: no-repeat;
    background-size: cover;
-   gap: 1.5rem ;
+   gap: 1rem ;
    
 }
 
 .name{
-    background-color: rgba(255, 255, 255, 0.808);
+    background-color: rgba(255, 255, 255, 0.801);
     border-radius: inherit;
-    font-size: 2rem;
+    border-bottom: none;
+    font-size:2.5rem;
     font-weight: bold;
     font-family: 'jost' ;
     line-height: 4rem;
-    box-shadow: 0.5px 0.5px 5px black ;
+    box-shadow: 0.1px 0.1px 1px black ;
     justify-content: start;
+    margin-top: -11px;
+
+}
+.name a{
+    text-decoration: none;
+    color: rgb(49, 44, 44);
+    cursor: pointer;
 
 }
 .score-time{
@@ -43,7 +51,8 @@
     font-family: 'ruda';
     flex-direction: row;
     justify-content: space-between;
-   
+   grid-row: 2/3;
+  
     
     
 }
@@ -75,14 +84,28 @@
 }
 
 .Questions{
-    line-height: 8rem;
+    line-height: 3.5rem;
     font-size:2rem ;
     font-family: 'Comfortaa', sans-serif;
     text-transform: capitalize;
     font-weight: 600;
+   overflow-wrap: break-word;
+   word-break:keep-all;
+   word-spacing: 0.5rem;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   transition: 0.4s ease-out;
+   color:black;
+   grid-row: 3/4;
+   
+
 }
+
 .answer-input{
-    line-height: 4rem;
+    line-height: 5rem;
+    grid-row: 4/5;
 }
 
 .answer-input input{
@@ -93,6 +116,42 @@
 vertical-align: middle;
     border: 1px solid rgb(164, 206, 209);
     
+    
+
+}
+.answer-input:focus{
+    border-color:rgb(164, 206, 209);
+}
+
+.answer-input-js{
+    display: none;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.answer-input-js:focus{
+    
+    display: none;
+    cursor: not-allowed;
+    pointer-events: none;
+    
+}
+.answer-input-block-js{
+    cursor: not-allowed;
+    pointer-events: none;
+
+}
+.button{
+            align-self: center;
+            grid-row: 5/-1;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.3rem;
+}
+
+.button:hover{
+ 
 
 }
 button{
@@ -103,8 +162,27 @@ button{
         background-color:rgb(19, 51, 59);
         border: none;
         font-size: 1.2rem;
-        
+        transition: 1s ease-in-out;
+}
 
+button:active{
+   
+    opacity: 0.8;
+}
 
+button:hover{
+    background-color:rgb(8, 65, 65);
+   transform:scale(1.2);
 
 }
+button a:hover{
+
+    
+
+}
+
+.skip-btn-js{
+    display: none;
+    
+}
+

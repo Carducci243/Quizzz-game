@@ -1,150 +1,187 @@
-let questionsArray=[{
-    question:'WHich contient is south africa',
-    answer:'Africa'
-},
+import { questionsArray } from "./Questions.js";
 
-  {
-        question:'How old is Fezeka?',
-        answer:'22'
+let questionsHtml = document.querySelector('.Questions')
+    ;
+let answerInput = document.querySelector('.answer-input-el');
+let asnwerBtn = document.querySelector('.answer-btn');
+let skipBtn = document.querySelector('.skip-btn');
+let scoreHtml = document.querySelector('.score')
+let score = 0;
+let randomIndex = 0;
+let i = questionsArray.length, random, temp;
+let timeoutEl = document.querySelector('.time-js')
+let time = 60;
+
+
+// using fisher yate shuffling algorithm to shuffle the array 
+
+let shufflingArray = (questionsArray) => {
+    while (--i > 0) {
+        random = Math.floor(Math.random() * (i + 1));
+        temp = questionsArray[random];
+        questionsArray[random] = questionsArray[i];
+        questionsArray[i] = temp
     }
-    , {
-        question: "What is the capital of Australia?",
-        answer: "Canberra"
-    },
-    {
-        question: "Which year did World War I begin?",
-        answer: "1914"
-    },
-    {
-        question: "Who discovered penicillin?",
-        answer: "Alexander Fleming"
-    },
-    {
-        question: "What is the capital of Australia?",
-        answer: "Canberra"
-    },
-    {
-        question: "Which year did World War I begin?",
-        answer: "1914"
-    },
-    {
-        question: "What is the capital of France?",
-        answer: "Paris"
-    },
-    {
-        question: "Who painted the Mona Lisa?",
-        answer: "Leonardo da Vinci"
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        answer: "Mars"
-    },
-    {
-        question: "What is the largest mammal in the world?",
-        answer: "Blue Whale"
-    },
-    {
-        question: "Who wrote 'To Kill a Mockingbird'?",
-        answer: "Harper Lee"
-    },
-    {
-        question: "What is the currency of Japan?",
-        answer: "Yen"
-    },
-    {
-        question: "What year did the Titanic sink?",
-        answer: "1912"
-    },
-    {
-        question: "What is the tallest animal in the world?",
-        answer: "Giraffe"
-    },
-    {
-        question: "Who invented the telephone?",
-        answer: "Alexander Graham Bell"
-    },
-    {
-        question: "What is the smallest country in the world?",
-        answer: "Vatican City"
-    }
-
-
-]
-let questionsHtml=document.querySelector('.Questions')
-;
-let answerInput=document.querySelector('.answer-input-el');
-let asnwerBtn=document.querySelector('.answer-btn');
-let scoreHtml=document.querySelector('.score')
-let score=0;
-let randomIndex=0;
-let i=questionsArray.length,random,temp;
-let timeoutEl=document.querySelector('.time-js')
-let startGame=()=>{
-    asnwerBtn.textContent='Answer';
 
 }
 
-let shufflingArray=()=>{
-    while(--i>0){
-        random=Math.floor(Math.random()*(i+1));
-        temp=questionsArray[random];
-        questionsArray[random]=questionsArray[i];
-        questionsArray[i]=temp  
-    }
-  
-}
+// Rendering the Questions in the DOM
 
-
-let questionsRendering=()=>{
-  questionsHtml.innerHTML=`${(questionsArray[i].question)}`
+let questionsRendering = () => {
+    questionsHtml.innerHTML = `${(questionsArray[i].question)}`
 
 }
 
 
+//  rendering the score in the DOM
+let scoreRendering = () => {
 
-let scoreRendering=()=>{
-
-    scoreHtml.innerHTML=`<p>Score:${score}</span>` 
+    scoreHtml.innerHTML = `<p>Score:${score}</span>`
 }
 
+// Function That will Validate the user input and Increase the score 
+// converting the user input and questions to lowercase 
+// increasing the score when answer is right and rendering the score in DOm 
+// moving the next question in the shuffled array then rendering the next question
+// moving the next question when the answer is wrong 
+// then run the the gameOver function after whne th condition have been met 
+let answerValidation = () => {
+    if (answerInput.value === ' ' || answerInput.value === '') {
 
-let answerValidation=()=>{
+            //if filed is empty the input field will be block then unbloced after 1s  
+        let interval = setInterval(() => {
+            answerInput.classList.add('answer-input-block-js')
+            clearInterval(interval);
+            answerInput.classList.remove('answer-input-block-js')
+        }, 1000)
 
-    if (answerInput.value===''){
-     alert('field cannot be empty')
     }
-    if (answerInput.value===questionsArray[i].answer){
+    else if (answerInput.value.toLowerCase() === questionsArray[i].answer.toLowerCase()) {
         alert('good');
         score++
         scoreRendering();
         i++;
         questionsRendering();
-        answerInput.value='';
-        
+        answerInput.value = '';
+
+
     }
-    else{alert('wrong answer')}
+    else {
+        alert('wrong answer')
+        i++;
+        questionsRendering();
+        answerInput.value = '';
+        console.log(i)
+    }
+
 }
 
-// const timeOut=()=>{
+// game over function will run after 60s 
+const gameOver = () => {
 
-//     timeoutEl.innerHTML=setTimeout(() => {
-        
-//     }, 30000+'S');
-// }
+    time = 60;
 
-shufflingArray();
+    let interval = setTimeout(() => {
+        if (score > questionsArray.length / 2) {
+            questionsHtml.innerHTML = ` Congrat Your Score is ${score} you're a nerd 🤓`
+        }
+        else {
+            questionsHtml.innerHTML = `Your Score is ${score} Try again Malaka!!! 😆`
+        }
+        clearInterval(interval);
+        asnwerBtn.textContent = 'Play Again';
+
+        answerInput.classList.add('answer-input-js')
+        // adding the styling answer-input to make the input disappear 
+        skipBtn.classList.add('skip-btn-js');
+        // dsiplaying the skip button 
+
+
+    }, 60000)
+
+
+
+}
+
+
+
+//countdown 
+
+const timeOut = () => {
+
+    timeoutEl.textContent = time;
+
+    const interval = setInterval(() => {
+        time--;
+
+        if (time >= 0) {
+            timeoutEl.textContent = time;
+        } else {
+            clearInterval(interval);
+            time = 60; // Reset the time to 45 seconds when it becomes negative
+            timeoutEl.textContent = time;
+        }
+    }, 1000);
+};
+
+
+
+// function to  restart the game 
+const playAgain = () => {
+    asnwerBtn.textContent = 'Answer';
+    answerInput.classList.remove('answer-input-js');
+    skipBtn.classList.remove('skip-btn-js')
+    shufflingArray(questionsArray);
+    questionsRendering(questionsArray);
+    answerValidation();
+    score = 0;
+    scoreRendering();
+    timeOut();
+    gameOver();
+}
+
+
+
+
+
+
+
+//code that runs when the page load
+shufflingArray(questionsArray);
 questionsRendering();
+timeOut();
+gameOver();
+
+// window event listener when we press enter answerValidation hould run
+window.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        answerValidation();
+
+    }
+    else if (asnwerBtn.textContent === 'Play Again') {
+        return 0
+    }
+
+})
+
+// answer button event listener
+asnwerBtn.addEventListener('click', () => {
+    answerValidation();
 
 
-asnwerBtn.addEventListener('click',()=>{
-    answerValidation()
-    // timeOut();
-    
-   
+    if (asnwerBtn.textContent === 'Play Again') {
+        playAgain();
+    }
+
 
 })
 
 
+// skip button event listener
+skipBtn.addEventListener('click', () => {
+    questionsRendering();
+    i++
+})
 
 
 

@@ -3,32 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quizz</title>
     <link rel="stylesheet" href="/Styles/Start.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
 <div class="container">
-    <div class="name">Quizz Game</div>
+    <div class="name"><a href="/Pages/index.html">Quizzz Game</a></div>
     <div class="score-time">
         <div class="score">
-          Score:
+          Score:0
         </div> 
         <div class="time">
             <span class="material-symbols-outlined">
                 hourglass_bottom
-                </span> <span class="time-js">1:20</span>
+                </span> <span class="time-js"><span style="font-weight: bold;
+                font-size: 1.3rem;">s </span></span>
         </div>
     </div>
 <div class="Questions">
-    <p></p>
+    
     </div>
     <div class="answer-input">
     
     <input type="text" class="answer-input-el">
     </div>
-    <div class="button"><button class="answer-btn">Start</button></div>
+    <div class="button">
+        <button class="answer-btn">Answer</button>
+        <button class="skip-btn">Skip</button>
+    </div>
 </div>
-    <script src="/scripts/index.js"></script>
+    <script type="module" src="/scripts/index.js"></script>
 </body>
 </html>
