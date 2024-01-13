@@ -75,3 +75,31 @@ button a {
 button:active{
    margin-top: 20px;
 }
+
+@media screen and (min-width:390px) {
+   .container{ 
+      .container{ 
+         display: grid;
+         text-align: center;
+        place-content:start;
+        border: 1px solid rgb(138, 171, 175);
+        min-width: 20vw;
+        min-height: 100dvh;
+        grid-template-columns: 1fr;
+        grid-template-rows:75px 250px;
+        border-radius: 20px;
+        background-image: url(/Images/hand-drawn-question-mark-pattern/7227163.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        gap: 1.5rem ;
+        
+      }
+      .start{
+         grid-row: 3/4;
+         font-size: 3rem;
+      }
+      
+  }
+  
+   
+}

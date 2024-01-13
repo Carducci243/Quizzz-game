@@ -15,7 +15,7 @@
    place-content: center;
    border: 1px solid rgb(138, 171, 175);
    min-width: 20vw;
-   min-height: 100vh;
+   min-height: 100dvh;
    grid-template-columns: 1fr;
    grid-template-rows:50px 50px 250px repeat(2,90px);
    border-radius: 20px;
@@ -27,6 +27,7 @@
 }
 
 .name{
+    grid-row: 1/2;
     background-color: rgba(255, 255, 255, 0.801);
     border-radius: inherit;
     border-bottom: none;
@@ -35,7 +36,7 @@
     font-family: 'jost' ;
     line-height: 4rem;
     box-shadow: 0.1px 0.1px 1px black ;
-    justify-content: start;
+    align-self: center;
     margin-top: -11px;
 
 }
@@ -60,6 +61,7 @@
 .score{
  margin: 0px 20px;
  font-weight: 600;
+align-self: center;
 }
 .time{
     font-weight: 500;
@@ -186,6 +188,8 @@ button a:hover{
     
 }
 
-@media screen {
+@media screen and (min-width:390px) {
+
+    
     
 }

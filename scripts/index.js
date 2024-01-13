@@ -22,7 +22,7 @@ let shufflingArray = (questionsArray) => {
         questionsArray[random] = questionsArray[i];
         questionsArray[i] = temp
     }
-
+    return questionsArray;
 }
 
 // Rendering the Questions in the DOM
@@ -128,10 +128,10 @@ const timeOut = () => {
 
 // function to  restart the game 
 const playAgain = () => {
+    shufflingArray(questionsArray);
     asnwerBtn.textContent = 'Answer';
     answerInput.classList.remove('answer-input-js');
-    skipBtn.classList.remove('skip-btn-js')
-    shufflingArray(questionsArray);
+    skipBtn.classList.remove('skip-btn-js');
     questionsRendering(questionsArray);
     answerValidation();
     score = 0;

@@ -155,6 +155,99 @@ export let questionsArray=[{
         question: "What is the largest social media network in the world?",
         answer: "facebook"
     },
+    {
+        question:'In a website browser address bar, what does “www” stand for? ',
+        answer:'World Wide Web'
+    },
+    {
+        question:'In the Catholic Church, the Bishop of Rome is a title more commonly known as what?',
+        answer:'Pope'
+    },
+    {
+        question:'What singer holds the most Grammy nominations?',
+        answer:'Beyonce'
+    },
+    {
+        question:'Who is the all-time leading NBA scorer?',
+        answer:'LeBron James'
+    },
+    {
+        question:'The first sport invented was what?',
+        answer:'Wrestling'
+    },
+    {
+        question:'What is the only country to have played in every single soccer World Cup?',
+        answer:'brazil'
+    },
+    {
+        question:'What is the fear of spiders called?',
+        answer:'Arachnophobia'
+    },
+    {
+        question:'Which animal is the fastest on land?',
+        answer:'Cheetah'
+    },
+    {
+        question:'What is the color of the most poisonous frog in the world?',
+        answer:'yellow'
+    },
+    {
+        question:'What are male honeybees called?',
+        answer:'Drones'
+    },
+    {
+        question:'What do you call animals that eat everything (meat, plants and fish)?',
+        answer:'Omnivores'
+    },
+    {
+        question:'What bird cannot move their eyeballs?',
+        answer:'owls'
+    },
+    {
+        question:"What is the world's most expensive spice?",
+        answer:'Saffron'
+    },
+    {
+        question:'Which is the only edible food that never expires?',
+        answer:'honey'
+    },
+    {
+        question:'Vodka is made from which vegetable?',
+        answer:'potato'
+    },
+    {
+        question:'Who gifted the Statue of Liberty to the United States?',
+        answer:'france'
+    },
+    {
+        question:'How many teeth does an adult human have? ',
+        answer:'32'
+    },
+    {
+        question:'What U.S. state is only two miles away from Russia?',
+        answer:'alaska'
+    },
+    {
+        question:'Where did the Olympic Games originate?',
+        answer:'greece'
+    },
+    {
+        question:'What is the majority of the earth covered by?',
+        answer:'ocean'
+    },
+    {
+        question:"What is the human body's largest organ?",
+        answer:'skin'
+    },
+    {
+        question:'What reptile cannot stick its tongue out?',
+        answer:'crocodile'
+    },
+    {
+        question:'What part of the human body can regrow itself in three weeks?',
+        answer:'liver'
+    },
+
 
 
 
